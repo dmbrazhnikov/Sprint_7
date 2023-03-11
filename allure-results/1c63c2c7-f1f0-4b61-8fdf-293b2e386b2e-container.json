@@ -1,0 +1,1 @@
+{"uuid":"1c63c2c7-f1f0-4b61-8fdf-293b2e386b2e","name":"Для создания курьера нужно передать все обязательные поля","children":["da917157-f81f-4dfe-8027-a0353733ce37"],"befores":[],"afters":[{"name":"cleanup","status":"passed","stage":"finished","steps":[],"attachments":[],"parameters":[],"start":1678386902025,"stop":1678386902025}],"start":1678386901808,"stop":1678386902025}
