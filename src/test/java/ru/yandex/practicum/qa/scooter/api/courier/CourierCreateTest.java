@@ -1,8 +1,9 @@
 package ru.yandex.practicum.qa.scooter.api.courier;
 
 import io.qameta.allure.Description;
-import io.restassured.response.Response;
 import org.junit.jupiter.api.*;
+import ru.yandex.practicum.qa.scooter.api.courier.stuff.Courier;
+
 import static org.hamcrest.Matchers.*;
 
 
@@ -15,9 +16,8 @@ public class CourierCreateTest extends BaseCourierTest {
     @DisplayName("Курьера можно создать")
     @Description("Создание курьера запросом с корректными данными")
     void shouldCreate() {
-        courier = new Courier();
-        Response response = sendPostToCreateCourier(courier);
-        response.then()
+        courierClient.sendPostToCreate(courier)
+                .then()
                 .statusCode(201)
                 .and()
                 .assertThat().body("ok", equalTo(true));
@@ -29,13 +29,12 @@ public class CourierCreateTest extends BaseCourierTest {
     @Description("Если попытаться создать пользователя с логином, который уже есть, возвращается ошибка")
     void shouldRejectDuplication() {
         // Arrange
-        courier = new Courier();
         courier.setPassword("0394u8iojgf");
         courier.setFirstName("Travis");
-        sendPostToCreateCourier(courier);
+        courierClient.sendPostToCreate(courier);
         // Act & assert
-        Response response = sendPostToCreateCourier(courier);
-        response.then()
+        courierClient.sendPostToCreate(courier)
+                .then()
                 .statusCode(409)
                 .and()
                 .assertThat().body("message", containsString("Этот логин уже используется"));
@@ -49,8 +48,8 @@ public class CourierCreateTest extends BaseCourierTest {
         // Arrange
         Courier incompleteCourier = new Courier("slowpoke_rodriguez", null, "Slowpoke", null);
         // Act & assert
-        Response response = sendPostToCreateCourier(incompleteCourier);
-        response.then()
+        courierClient.sendPostToCreate(incompleteCourier)
+                .then()
                 .statusCode(400)
                 .and()
                 .assertThat().body("message", containsString("Недостаточно данных для создания учетной записи"));

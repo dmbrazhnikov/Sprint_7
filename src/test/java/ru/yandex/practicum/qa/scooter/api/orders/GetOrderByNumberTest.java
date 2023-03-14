@@ -3,15 +3,17 @@ package ru.yandex.practicum.qa.scooter.api.orders;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import ru.yandex.practicum.qa.scooter.api.BaseTest;
+import ru.yandex.practicum.qa.scooter.api.BaseClient;
+import ru.yandex.practicum.qa.scooter.api.orders.stuff.ScooterOrder;
 
 import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.Matchers.equalTo;
 import static org.junit.jupiter.api.Assertions.*;
 import static io.restassured.RestAssured.given;
 
 @DisplayName("Получить заказ по его номеру")
-public class GetOrderByNumberTest extends BaseTest {
+public class GetOrderByNumberTest extends BaseClient {
+
+    private static final String URI_PART = "/orders/track";
 
     @Test
     @DisplayName("Корректный запрос")
@@ -20,10 +22,10 @@ public class GetOrderByNumberTest extends BaseTest {
         Response response = given()
                 .config(config)
                 .queryParam("t", track)
-                .get("/orders/track");
+                .get(URI_PART);
         response.then().statusCode(200);
-        Order order = response.jsonPath().getObject("order", Order.class);
-        assertEquals(track, order.getTrack());
+        ScooterOrder scooterOrder = response.jsonPath().getObject("order", ScooterOrder.class);
+        assertEquals(track, scooterOrder.getTrack());
     }
 
     @Test
@@ -31,7 +33,7 @@ public class GetOrderByNumberTest extends BaseTest {
     void shouldReturnInsufficientDataError() {
         given().config(config)
                 .when()
-                .get("/orders/track")
+                .get(URI_PART)
                 .then()
                 .statusCode(400)
                 .and()
@@ -44,7 +46,7 @@ public class GetOrderByNumberTest extends BaseTest {
         given().config(config)
                 .queryParam("t", 1111111111)
                 .when()
-                .get("/orders/track")
+                .get(URI_PART)
                 .then()
                 .statusCode(404)
                 .and()
