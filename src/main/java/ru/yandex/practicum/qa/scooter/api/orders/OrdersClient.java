@@ -1,4 +1,4 @@
-package ru.yandex.practicum.qa.scooter.api.orders.stuff;
+package ru.yandex.practicum.qa.scooter.api.orders;
 
 import io.qameta.allure.Step;
 import io.restassured.http.ContentType;

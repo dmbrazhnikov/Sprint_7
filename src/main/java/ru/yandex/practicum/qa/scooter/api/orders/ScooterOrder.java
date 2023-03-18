@@ -1,4 +1,4 @@
-package ru.yandex.practicum.qa.scooter.api.orders.stuff;
+package ru.yandex.practicum.qa.scooter.api.orders;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;

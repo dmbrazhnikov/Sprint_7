@@ -7,8 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.aggregator.ArgumentsAccessor;
 import org.junit.jupiter.params.provider.CsvSource;
-import ru.yandex.practicum.qa.scooter.api.orders.stuff.OrdersClient;
-import ru.yandex.practicum.qa.scooter.api.orders.stuff.ScooterOrder;
+
 import java.util.List;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.jupiter.api.Assertions.assertFalse;

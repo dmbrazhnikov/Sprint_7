@@ -1,4 +1,4 @@
-package ru.yandex.practicum.qa.scooter.api.courier.stuff;
+package ru.yandex.practicum.qa.scooter.api.courier;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;

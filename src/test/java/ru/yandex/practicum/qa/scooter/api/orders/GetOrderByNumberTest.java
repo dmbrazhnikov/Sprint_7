@@ -4,7 +4,6 @@ import io.restassured.response.Response;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.yandex.practicum.qa.scooter.api.BaseClient;
-import ru.yandex.practicum.qa.scooter.api.orders.stuff.ScooterOrder;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.junit.jupiter.api.Assertions.*;

@@ -3,8 +3,6 @@ package ru.yandex.practicum.qa.scooter.api.courier;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import ru.yandex.practicum.qa.scooter.api.courier.stuff.Courier;
-import ru.yandex.practicum.qa.scooter.api.courier.stuff.CourierClient;
 
 
 public class BaseCourierTest {

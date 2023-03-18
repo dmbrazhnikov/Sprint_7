@@ -3,7 +3,6 @@ package ru.yandex.practicum.qa.scooter.api.courier;
 import io.qameta.allure.Description;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.*;
-import ru.yandex.practicum.qa.scooter.api.courier.stuff.Courier;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.notNullValue;
